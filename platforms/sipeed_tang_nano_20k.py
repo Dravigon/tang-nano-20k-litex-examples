@@ -118,12 +118,31 @@ _io = [
     IOStandard("LVCMOS33")
 ),
 
-    ("custom_serial", 0,
-        Subsignal("tx", Pins("48")),  # Example mapping for pin 48
-        Subsignal("rx", Pins("51")),  # Example mapping for pin 51
-        IOStandard("LVCMOS33"),
-        Misc("PULL_MODE=DOWN"),
-    ),
+    # ("custom_serial", 0,
+    #     Subsignal("tx", Pins("48")),  # Example mapping for pin 48
+    #     Subsignal("rx", Pins("51")),  # Example mapping for pin 51
+    #     IOStandard("LVCMOS33"),
+    #     Misc("PULL_MODE=DOWN"),
+    # ),
+
+# ("custom_spi", 0,
+#     Subsignal("clk",  Pins("51")),
+#     Subsignal("miso", Pins("48")),
+#     Subsignal("mosi", Pins("55")),
+#     Subsignal("cs_n", Pins("49")),
+#     IOStandard("LVCMOS33"),
+# ),
+("custom_spi", 0,
+    Subsignal("clk",  Pins("51")),
+    Subsignal("miso", Pins("48")),
+    Subsignal("mosi", Pins("55")),
+    Subsignal("cs_n", Pins("49")),
+    IOStandard("LVCMOS33"),
+    # Apply properties without commas:
+    Misc("PULL_MODE=NONE"),
+    # Misc("SLEW=FAST"),
+),
+
        # Serial.
     ("serial", 0,
         Subsignal("rx", Pins("70")),
